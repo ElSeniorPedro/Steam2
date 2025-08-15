@@ -27,18 +27,18 @@ body {
     width: 60%;
     height: 48px;
     margin: 16px auto;
-    background: #00e473;
+    background: #000;
     color: #fff;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 1.2rem;
     font-weight: bold;
-    box-shadow: 0 2px 12px #00e47333;
+    box-shadow: 0 2px 12px #00000033;
     cursor: pointer;
     transition: background .2s;
 }
 .btn:hover, .btn:focus {
-    background: #06c161;
+    background: #666;
 }
 .header-lottie {
     width: 120px;
@@ -77,12 +77,14 @@ input[type="date"] {
 }
 .footer {
     width: 100%;
-    height: 10vh;
-    background: #fff;
-    border-top: 1px solid #eee;
+    height: 40px;
+    background: #000;
+    border-top: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 .logout-btn {
     background: #e74c3c;
@@ -100,5 +102,37 @@ input[type="date"] {
     }
     input, select {
         width: 95%;
+    }
+}
+
+/* S!Team animation effect for footer */
+.steam-animation {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    animation: steamFade 3s infinite;
+    opacity: 0;
+}
+
+@keyframes steamFade {
+    0% { 
+        opacity: 0; 
+        transform: translateY(-50%) translateX(-10px); 
+    }
+    20% { 
+        opacity: 1; 
+        transform: translateY(-50%) translateX(0); 
+    }
+    80% { 
+        opacity: 1; 
+        transform: translateY(-50%) translateX(0); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-50%) translateX(10px); 
     }
 }

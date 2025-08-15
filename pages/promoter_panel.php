@@ -16,26 +16,26 @@ require_once("../config.php");
 <body>
     <div class="container" id="main-panel" style="padding:0; max-width:100vw;">
         <!-- هدر -->
-        <div style="height:20vh; display:flex; align-items:center; justify-content:space-between; background:#fff; border-radius:0 0 22px 22px; box-shadow:0 4px 18px #0001;">
-            <!-- سمت راست: عکس پروفایل -->
-            <div style="width:22%; display:flex; justify-content:center;">
-                <div id="profile-pic" style="width:84px;height:84px;border-radius:50%;background:#eee;box-shadow:0 0 18px #00e47355, 0 6px 20px #0001;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+        <div style="height:25vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(135deg, #000 0%, #333 100%); border-radius:0 0 30px 30px; box-shadow:0 4px 18px #0003; position:relative;">
+            <!-- عکس پروفایل در بالا -->
+            <div style="margin-bottom:15px;">
+                <div id="profile-pic" style="width:90px;height:90px;border-radius:50%;background:#eee;box-shadow:0 0 20px #ffffff33, 0 6px 20px #0003;overflow:hidden;display:flex;align-items:center;justify-content:center;">
                     <img id="profile-img" src="../assets/images/profile-default.png" alt="پروفایل" style="width:100%;height:100%;object-fit:cover;">
                 </div>
             </div>
-            <!-- مرکز: انیمیشن Lottie -->
-            <div style="width:56%;display:flex;justify-content:center;">
-                <div id="lottie-promoter-panel" style="height:90px;width:90px"></div>
+            <!-- اطلاعات کاربر زیر عکس -->
+            <div style="text-align:center;" id="user-info">
+                <div id="promoter-name" style="font-size:1.2rem;font-weight:bold;color:#fff;margin-bottom:8px;"></div>
+                <div id="promoter-province-city" style="font-size:1rem;color:#ccc;margin-bottom:8px;"></div>
+                <div id="promoter-status" style="font-size:1rem;font-weight:bold;"></div>
             </div>
-            <!-- سمت چپ: اطلاعات کاربر -->
-            <div style="width:22%;text-align:right;padding-left:4px;" id="user-info">
-                <div id="promoter-name" style="font-size:1.05rem;font-weight:bold;"></div>
-                <div id="promoter-province-city" style="font-size:.9rem;color:#666;margin-top:2px;"></div>
-                <div id="promoter-status" style="font-size:.92rem;margin-top:6px;font-weight:bold;"></div>
+            <!-- انیمیشن Lottie در گوشه -->
+            <div style="position:absolute;top:15px;left:15px;">
+                <div id="lottie-promoter-panel" style="height:60px;width:60px;opacity:0.7;"></div>
             </div>
         </div>
         <!-- بخش اصلی: دکمه‌ها -->
-        <div style="height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+        <div style="height:65vh;display:flex;flex-direction:column;justify-content:center;align-items:center;">
             <!-- فاصله تا اسپات و وضعیت -->
             <div id="distance-info" style="font-size:1.14rem;margin-top:18px;margin-bottom:12px;"></div>
             <!-- دکمه‌ها -->
@@ -47,6 +47,7 @@ require_once("../config.php");
     </div>
     <!-- فوتر: دکمه خروج -->
     <div class="footer">
+        <div class="steam-animation">S!Team</div>
         <button class="logout-btn btn" onclick="logoutPromoter()">خروج</button>
     </div>
     <script>
@@ -87,7 +88,7 @@ require_once("../config.php");
             document.getElementById('promoter-name').textContent = `${p.first_name} ${p.last_name}`;
             document.getElementById('promoter-province-city').textContent = `${p.province || ''}، ${p.city || ''}`;
             document.getElementById('promoter-status').textContent = (p.status === 'active' ? 'فعال' : 'غیرفعال');
-            document.getElementById('promoter-status').style.color = (p.status === 'active' ? '#16a34a' : '#e11d48');
+            document.getElementById('promoter-status').style.color = (p.status === 'active' ? '#4ade80' : '#f87171');
             if (p.profile_pic) {
                 document.getElementById('profile-img').src = '../assets/images/'+p.profile_pic;
             }
