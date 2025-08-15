@@ -1,0 +1,18 @@
+# Development files
+config_dev.php
+*_test.php
+
+# Assets and dependencies
+vendor/
+node_modules/
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
